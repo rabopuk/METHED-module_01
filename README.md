@@ -1,4 +1,5 @@
 # MODULE_01
+***
 ## git-config
 ### Действия после установки git
 git config --list
@@ -49,3 +50,4 @@ git commit -a -m 'сохраняет изменения отслеживаемы
 git remote add origin git@github.com:rabopuk/...
 git branch -M main
 git push -u origin main
+***
