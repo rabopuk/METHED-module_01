@@ -42,12 +42,13 @@ git checkout name.file
 #### отправить изменения в удаленный репозиторий
 git push
 #### клонирование репозитория
-git clone https://github.com/...
+git clone git@github.com:username/...
 #### сохраняет изменения отслеживаемых файлов и выполняет коммит
 git commit -a -m 'сохраняет изменения отслеживаемых файлов и выполняет коммит'
 
-### Привязать локальный репозиторий к удалённому
-git remote add origin git@github.com:rabopuk/...
-git branch -M main
+### Привязать репозиторий
+#### Привязать локальный репозиторий к удалённому
+git remote add origin git@github.com:username/...
+#### Запушить изменения с локального на удалённый
 git push -u origin main
 ***

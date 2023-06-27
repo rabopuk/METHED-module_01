@@ -12,5 +12,8 @@
 };
 
 {
-
+	const productName = 'mouse',
+		productCategory = 'input-devices',
+		quantityOfGoods = 23,
+		productPrice = 225;
 };
