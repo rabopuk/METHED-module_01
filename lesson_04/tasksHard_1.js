@@ -48,5 +48,5 @@ if (earnings2 > 0) {
 
 	alert(`Вы заработали ${earnings2}₽. Сумма налога ${tax2}₽. На руки вам дадут ${earnings2 - tax2}₽`);
 
-	console.log(`Вы заработали ${earnings2}₽. Сумма налога ${tax2}₽. На руки вам дадут ${earnings2 - tax2}₽`);;
+	console.log(`Вы заработали ${earnings2}₽. Сумма налога ${tax2}₽. На руки вам дадут ${earnings2 - tax2}₽`);
 }
