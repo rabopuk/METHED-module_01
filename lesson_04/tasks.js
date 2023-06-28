@@ -27,7 +27,7 @@ const cap = 265,
 	secondScore = +prompt('Введите кол-во баллов по русскому языку', 0),
 	thirdScore = +prompt('Введите кол-во баллов по информатике:', 0);
 
-alert(cap < firstScore + secondScore + thirdScore ? 'Поздравляю, вы поступили на бюджет!' : 'Сочувствую, братан(((');
+alert(cap <= firstScore + secondScore + thirdScore ? 'Поздравляю, вы поступили на бюджет!' : 'Сочувствую, братан(((');
 
 console.log(cap < firstScore + secondScore + thirdScore ? 'Поздравляю, вы поступили на бюджет!' : 'Сочувствую, братан(((');
 
