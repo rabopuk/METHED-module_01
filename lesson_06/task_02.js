@@ -20,6 +20,6 @@ const isPrime = (n) => {
 	}
 };
 
-alert(`${num} простое число? ${isPrime(num)}`);
+alert(`${num} простое число? ${isPrime(num) ? 'ДА' : 'НЕТ'}`);
 
 console.log(`${num} простое число? `, isPrime(num));
