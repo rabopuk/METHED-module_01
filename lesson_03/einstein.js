@@ -1,10 +1,14 @@
-const c = 3e8, // speed light, m/s
-	myWeight = 72; // kg
+'use strict';
 
-let m = 0; // weight, kg
+{
+	const c = 3e8, // speed light, m/s
+		myWeight = 72; // kg
 
-m = myWeight;
+	let m = 0; // weight, kg
 
-const e = m * c ** 2; // Mass–energy equivalence, J
+	m = myWeight;
 
-console.log('my E: ', `${e} Joules`);
+	const e = m * c ** 2; // Mass–energy equivalence, J
+
+	console.log('my E: ', `${e} Joules`);
+};

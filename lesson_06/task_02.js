@@ -1,3 +1,4 @@
+'use strict';
 // Напишите функцию isPrime.
 // Она принимает число и возвращает true, если число является простым, а в ином случае false.
 // Простое число - целое положительное число, имеющее ровно два различных натуральных делителя - единицу и самого себя.
@@ -5,21 +6,23 @@
 // 151, 911, 1987 - так же простые числа
 // Используйте цикл for в функции
 
-const num = +prompt('Введите число');
+{
+	const num = +prompt('Введите число');
 
-const isPrime = (n) => {
-	if (n < 2) {
-		return false;
-	} else {
-		for (let i = 2; i < n; i++) {
-			if (n % i === 0) {
-				return false;
+	const isPrime = (n) => {
+		if (n < 2) {
+			return false;
+		} else {
+			for (let i = 2; i < n; i++) {
+				if (n % i === 0) {
+					return false;
+				}
 			}
+			return true;
 		}
-		return true;
-	}
+	};
+
+	alert(`${num} простое число? ${isPrime(num) ? 'ДА' : 'НЕТ'}`);
+
+	console.log(`${num} простое число? `, isPrime(num));
 };
-
-alert(`${num} простое число? ${isPrime(num) ? 'ДА' : 'НЕТ'}`);
-
-console.log(`${num} простое число? `, isPrime(num));
