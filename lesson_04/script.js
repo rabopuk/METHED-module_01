@@ -26,7 +26,7 @@
 			productPrice = +prompt('Цена товара ($)?', 0);
 
 		// ? А почему не срабатывает такой вариант проверки?
-		// ! if (typeof quantityOfGoods === 'number' && quantityOfGoods !== NaN) {}
+		// ! if (typeof quantityOfGoods === 'number' && typeof quantityOfGoods !== NaN) {}
 
 		if (Number.isFinite(quantityOfGoods) && !Number.isNaN(quantityOfGoods)) {
 			console.log(('quantityOfGoods: ').padEnd(18, ' '), quantityOfGoods, ' // ', 'typeof: ', typeof quantityOfGoods);
