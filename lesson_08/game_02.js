@@ -36,9 +36,9 @@
 	const checkAttempts = (arr, str) => {
 		if (arr.includes(str)) {
 			alert('Это число уже было) Попытка не засчитывается, попробуй снова');
-			str = isNumber(prompt('Твоё предположение?'));
+			str = checkAttempts(arr, isNumber(prompt('Твоё предположение?')));
 		} else {
-			arr.push(str);
+			return arr.push(str);
 		}
 
 		return str;
@@ -100,7 +100,7 @@
 				return;
 			};
 
-			if (attemptsArr.length >= attempts) {
+			if (attempts <= attemptsArr.length) {
 				alert('У тебя кончились попытки(( Ты проиграл((((((');
 				return;
 			}
