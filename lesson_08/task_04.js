@@ -23,10 +23,10 @@
 	let from = -1691,
 		upto = -1748;
 
-	console.log('leapYears: ', leapYears(from, upto));
+	console.log('task_04 leapYears: ', leapYears(from, upto));
 
 	from = 2115,
 		upto = 1991;
 
-	console.log('leapYears: ', leapYears(from, upto));
+	console.log('task_04 leapYears: ', leapYears(from, upto));
 };

@@ -60,12 +60,12 @@
 		n = 25,
 		str = 'even';
 
-	console.log('generateMassive: ', generateMassive(count, m, n, str));
+	console.log('task_03 even generateMassive: ', generateMassive(count, m, n, str));
 
 	count = 42,
 		m = 25,
 		n = -5,
 		str = 'odd';
 
-	console.log('generateMassive: ', generateMassive(count, m, n, str));
+	console.log('task_03 odd generateMassive: ', generateMassive(count, m, n, str));
 };

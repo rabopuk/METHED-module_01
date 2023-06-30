@@ -24,8 +24,8 @@
 	};
 
 	let n = 5;
-	console.log('generateMassive: ', generateMassive(n));
+	console.log('task_01 generateMassive: ', generateMassive(n));
 
 	n = 42;
-	console.log('generateMassive: ', generateMassive(n));
+	console.log('task_01 generateMassive: ', generateMassive(n));
 };

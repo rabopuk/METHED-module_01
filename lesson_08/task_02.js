@@ -31,11 +31,11 @@
 		m = -5,
 		n = 25;
 
-	console.log('generateMassive: ', generateMassive(count, m, n));
+	console.log('task_02 generateMassive: ', generateMassive(count, m, n));
 
 	count = 42,
 		m = 25,
 		n = -5;
 
-	console.log('generateMassive: ', generateMassive(count, m, n));
+	console.log('task_02 generateMassive: ', generateMassive(count, m, n));
 };
