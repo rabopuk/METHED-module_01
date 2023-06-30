@@ -50,8 +50,8 @@
 		alert('Игра: отгадай число в диапазоне двух чисел');
 
 		const attemptsArr = [],
-			firstNum = isNumber(prompt('Введи первое число')),
-			secondNum = isNumber(prompt('Введи второе число'));
+			firstNum = isNumber(prompt('Введи первое число диапазона')),
+			secondNum = isNumber(prompt('Введи второе число диапазона'));
 
 		if ((firstNum === null || firstNum === '') || (secondNum === null || secondNum === '')) {
 			alert('Конец игры(((');
