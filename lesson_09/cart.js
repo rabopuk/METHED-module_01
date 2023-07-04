@@ -49,7 +49,7 @@
 			newItemObj.name = name;
 			newItemObj.price = price;
 			newItemObj.count = count;
-			newItemObj.totalPrice = newItemObj.price * newItemObj.count;
+			newItemObj.totalPrice = newItemObj.price * newItemObj.count; // * без введения этого свойства мне было трудно догадаться как решить задание
 
 			this.items.push(newItemObj);
 
