@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 'use strict';
 // Усовершенствуйте игру, которую написали в game01
 // бот предлагает ввести два числа, и загадывает случайное число в этом диапазоне
@@ -8,108 +9,105 @@
 // если попытки закончились игра прекращается
 
 {
-	// Генерирую случайное число
-	const generateRandomNumbers = (min, max) => {
-		min = Math.ceil(min);
-		max = Math.floor(max);
+  // Генерирую случайное число в заданном диапазоне
+  const generateRandomNumber = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
 
-		const randomNum = Math.floor(Math.random() * (max - min + 1) + min);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  };
 
-		return randomNum;
-	};
-
-
-	// Проверка, что пользователь ввёл число
-	const isNumber = (str) => {
-		if (Number.isFinite(+str) && !Number.isNaN(+str)) {
-			return str;
-		} else {
-			alert('Введи число!');
-			str = isNumber(prompt('Какое число?'));
-		}
-
-		return str;
-	};
+  // Если промпт отменён
+  const checkPromptCancel = (prompt) => prompt === null || prompt === '' || prompt === 0;
 
 
-	// Проверяю наличие ответа в массиве
-	const checkAttempts = (arr, str) => {
-		if (arr.includes(str)) {
-			alert('Это число уже было) Попытка не засчитывается, попробуй снова');
-			str = checkAttempts(arr, isNumber(prompt('Твоё предположение?')));
-		} else {
-			return arr.push(str);
-		}
+  // Промпт и проверка на число
+  const promptNum = (str = 'Твоё предположение?') => {
+    let text = prompt(str);
 
-		return str;
-	};
+    while (isNaN(text)) {
+      alert('Введи число');
+      text = prompt(str);
+    }
 
-
-	// Бот
-	const bot = () => {
-		alert('Игра: отгадай число в диапазоне двух чисел');
-
-		const attemptsArr = [],
-			firstNum = isNumber(prompt('Введи первое число диапазона')),
-			secondNum = isNumber(prompt('Введи второе число диапазона'));
-
-		if ((firstNum === null || firstNum === '') || (secondNum === null || secondNum === '')) {
-			alert('Конец игры(((');
-			return;
-		}
-
-		const min = Math.min(firstNum, secondNum),
-			max = Math.max(firstNum, secondNum),
-			attempts = Math.round((max - min) * .3);
-
-		const randomNum = generateRandomNumbers(min, max);
-		console.log('randomNum: ', randomNum);
-
-		alert(`Тебе нужно отгадать число в диапазоне ${min}-${max})) Число твоих попыток: ${attempts}))`);
-
-		let res = checkAttempts(attemptsArr, isNumber(prompt('Твоё предположение?')));
-		console.log('attemptsArr: ', attemptsArr);
+    return text;
+  };
 
 
-		// Игра
-		while (+res !== randomNum) {
-			// Отмена игры
-			if (res === null || res === '' || res === 0) {
-				alert('Конец игры(((');
-				return;
-			}
+  // Проверка, является ли число повторяющимся в массиве
+  const isNumberRepeated = (number, array) => array.includes(number);
 
-			if (+res < randomNum) {
-				alert('Загаданное число больше');
 
-				res = checkAttempts(attemptsArr, isNumber(prompt('Твоё предположение?')));
-				console.log('attemptsArr: ', attemptsArr);
-			}
+  // Рекурсия
+  const foo = (attempt, num, numbersArray, maxAttempts, range) => {
+    if (checkPromptCancel(attempt)) {
+      return alert('Конец игры(((');
+    }
 
-			if (+res > randomNum) {
-				alert('Загаданное число меньше');
+    while (isNumberRepeated(+attempt, numbersArray)) {
+      alert('Это число уже было. Попытка не засчитывается');
+      attempt = promptNum();
+    }
 
-				res = checkAttempts(attemptsArr, isNumber(prompt('Твоё предположение?')));
-				console.log('attemptsArr: ', attemptsArr);
+    numbersArray.push(+attempt);
+    console.log('numbersArray: ', numbersArray);
 
-			}
 
-			if (+res === randomNum) {
-				alert(`Ты угадал(а)!!! Загаданное число было ${randomNum}! ПОЗДРАВЛЯЮ)))`);
+    if (+attempt === num) {
+      return alert(`Ты угадал(а)!!! Загаданное число было " ${num} "! ПОЗДРАВЛЯЮ)))`);
+    }
 
-				return;
-			};
+    if (numbersArray.length > maxAttempts) {
+      return alert(`Попытки закончились! Загаданное число было ${num}. Игра окончена`);
+    }
 
-			if (attempts <= attemptsArr.length) {
-				alert('У тебя кончились попытки(( Ты проиграл((((((');
-				return;
-			}
-		}
+    +attempt < num ?
+      alert(`Загаданное число больше. Осталось попыток: ${maxAttempts - numbersArray.length}.\nНапоминаю, угадать нужно из диапазона ${range}`) :
+      alert(`Загаданное число меньше. Осталось попыток: ${maxAttempts - numbersArray.length}.\nНапоминаю, угадать нужно из диапазона ${range}`);
 
-		return;
-	};
+    attempt = promptNum();
 
-	setTimeout(() => {
-		bot();
-	}, 3000);
-};
+    return foo(attempt, num, numbersArray, maxAttempts, range);
+  };
+
+
+  // Игра
+  const bot = () => {
+    alert(`Игра: отгадай число в загаданном тобой диапазоне`);
+
+    const minNum = promptNum('Загадай первое число');
+
+    if (checkPromptCancel(minNum)) {
+      return alert('Конец игры(((');
+    }
+
+    const maxNum = promptNum('Загадай второе число');
+
+    if (checkPromptCancel(maxNum)) {
+      return alert('Конец игры(((');
+    }
+
+    const range = `" ${Math.min(minNum, maxNum)} / ${Math.max(minNum, maxNum)} "`;
+    const randomNum = generateRandomNumber(minNum, maxNum);
+    console.log('randomNum: ', randomNum);
+
+    // Массив для хранения введенных чисел
+    const numbersArray = [];
+
+    // Количество попыток (30% от количества чисел в диапазоне)
+    const maxAttempts = Math.floor((Math.abs(maxNum - minNum) + 1) * 0.3);
+
+
+    alert(`Отгадай число в диапазоне ${range}. Количество попыток: ${maxAttempts}`);
+
+    const res = promptNum();
+
+    // Крутим рекурсию до победного или отмены
+    foo(res, randomNum, numbersArray, maxAttempts, range);
+  };
+
+  setTimeout(() => {
+    bot();
+  }, 3000);
+}
+
