@@ -60,9 +60,9 @@
     foo(res, randomNum);
   };
 
-  // setTimeout(() => {
-  //   bot();
-  // }, 3000);
+  setTimeout(() => {
+    bot();
+  }, 3000);
 }
 
 
