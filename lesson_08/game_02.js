@@ -18,7 +18,7 @@
   };
 
   // Если промпт отменён
-  const checkPromptCancel = (prompt) => prompt === null || prompt === '' || prompt === 0;
+  const checkPromptCancel = (prompt) => prompt === null || prompt === '';
 
 
   // Промпт и проверка на число
