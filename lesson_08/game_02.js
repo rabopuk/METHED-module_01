@@ -34,7 +34,7 @@
       }
     }
 
-    return text;
+    return +text;
   };
 
 
@@ -48,16 +48,16 @@
       return alert('Конец игры(((');
     }
 
-    while (isNumberRepeated(+attempt, numbersArray)) {
+    while (isNumberRepeated(attempt, numbersArray)) {
       alert('Это число уже было. Попытка не засчитывается');
       attempt = promptNum();
     }
 
-    numbersArray.push(+attempt);
+    numbersArray.push(attempt);
     console.log('numbersArray: ', numbersArray);
 
 
-    if (+attempt === num) {
+    if (attempt === num) {
       return alert(`Ты угадал(а)!!! Загаданное число было " ${num} "! ПОЗДРАВЛЯЮ)))`);
     }
 
@@ -65,7 +65,7 @@
       return alert(`Попытки закончились! Загаданное число было ${num}. Игра окончена`);
     }
 
-    +attempt < num ?
+    attempt < num ?
       alert(`Загаданное число больше. Осталось попыток: ${maxAttempts - numbersArray.length}.\nНапоминаю, угадать нужно из диапазона ${range}`) :
       alert(`Загаданное число меньше. Осталось попыток: ${maxAttempts - numbersArray.length}.\nНапоминаю, угадать нужно из диапазона ${range}`);
 
