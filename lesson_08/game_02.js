@@ -25,9 +25,13 @@
   const promptNum = (str = 'Твоё предположение?') => {
     let text = prompt(str);
 
-    while (isNaN(text)) {
-      alert('Введи число');
-      text = prompt(str);
+    while (isNaN(parseFloat(text)) && !isFinite(parseFloat(text))) {
+      if (checkPromptCancel(text)) {
+        return text;
+      } else {
+        alert('Введи число');
+        text = prompt(str);
+      }
     }
 
     return text;
