@@ -53,10 +53,10 @@
         }
       }
 
-      const lowerCaseChoice = playerChoice.toLowerCase();
+      const choiceToLowerCase = playerChoice.toLowerCase();
 
       // Проверка первых букв в названии фигуры (чтоб была возможность не писать слово целиком в игре)
-      const matchingFigure = FIGURES.find(figure => figure.startsWith(lowerCaseChoice));
+      const matchingFigure = FIGURES.find(figure => figure.startsWith(choiceToLowerCase));
 
       if (!matchingFigure) {
         // Вывод сообщения об ошибке в случае некорректного выбора
