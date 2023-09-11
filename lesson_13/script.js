@@ -1,4 +1,4 @@
 'use strict';
 
-const startGame = window.rsp();
+const startGame = window.rsp;
 startGame();
